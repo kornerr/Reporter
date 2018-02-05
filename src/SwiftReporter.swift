@@ -60,12 +60,14 @@ public class Reporter {
         }
     }
 
+    @discardableResult
     public func subscribe(
         _ callback: @escaping ReporterCallback
     ) -> ReporterSubscription {
         return self.subscribe(callback, owner: nil)
     }
 
+    @discardableResult
     public func subscribe(
         _ callback: @escaping ReporterCallback,
         owner: AnyObject? = nil

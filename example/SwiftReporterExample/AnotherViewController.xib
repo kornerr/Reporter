@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="SwiftReporterExample" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnotherViewController" customModule="SwiftReporterExample" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,13 +21,13 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nXO-at-HuF">
                     <rect key="frame" x="0.0" y="169" width="320" height="30"/>
-                    <state key="normal" title="Present another VC"/>
+                    <state key="normal" title="Close me"/>
                     <connections>
-                        <action selector="presentAnotherVC:" destination="-1" eventType="touchUpInside" id="c0v-jK-GLo"/>
+                        <action selector="close:" destination="-1" eventType="touchUpInside" id="4jR-Tm-wCq"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main VC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Goj-51-gzu">
-                    <rect key="frame" x="128" y="118" width="64" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Another VC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUn-Sq-jA0">
+                    <rect key="frame" x="116" y="118" width="88" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -35,11 +35,11 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="nXO-at-HuF" firstAttribute="top" secondItem="Goj-51-gzu" secondAttribute="bottom" constant="30" id="1pc-8E-x08"/>
+                <constraint firstItem="nXO-at-HuF" firstAttribute="top" secondItem="gUn-Sq-jA0" secondAttribute="bottom" constant="30" id="0pj-Jb-aeX"/>
                 <constraint firstAttribute="trailing" secondItem="nXO-at-HuF" secondAttribute="trailing" id="Ys0-6T-m4w"/>
-                <constraint firstItem="Goj-51-gzu" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hTw-oU-R2Q"/>
                 <constraint firstItem="nXO-at-HuF" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-100" id="nAs-ap-PyU"/>
                 <constraint firstItem="nXO-at-HuF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rED-3N-u6b"/>
+                <constraint firstItem="gUn-Sq-jA0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ubZ-Cl-rlf"/>
             </constraints>
             <point key="canvasLocation" x="24" y="51"/>
         </view>
