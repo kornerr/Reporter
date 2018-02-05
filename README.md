@@ -12,9 +12,9 @@ SwiftReporter provides simple reporting functionality to your Swift projects.
 
 TODO
 
-- iOS ?+
-- Xcode ?+
-- Swift ?+
+- iOS 8.0+
+- Xcode 9.0+
+- Swift 4.0+
 
 ## Installation
 
@@ -51,6 +51,15 @@ import SwiftReporter
 ...
 ```
 
+## Alternatives
+
+TODO
+
+## Issues
+
+TODO
+
+Create issue and we'll sort it out together.
 
 ## License
 
