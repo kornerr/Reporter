@@ -19,30 +19,53 @@ freely, subject to the following restrictions:
 3. This notice may not be removed or altered from any source distribution.
 */
 
-public typealias ReporterCallback = () -> Void
+import Foundation
 
-// TODO Remove owner?
+// Reporter bag controls life time of subscriptions:
+// subscriptions of a bag are removed when the bag is deallocated.
+public class ReporterBag {
+    
+    public init() { }
 
-public struct ReporterSubscription {
-
-    let callback: ReporterCallback
-    weak var reporter: Reporter?
-    weak var owner: AnyObject?
-
-    init(_ callback: @escaping ReporterCallback, _ reporter: Reporter?, _ owner: AnyObject?) {
-        self.callback = callback
-        self.reporter = reporter
-        self.owner = owner
+    deinit {
+        for sub in self.subscriptions {
+            sub.reporter?.removeSubscription(id: sub.id)
+        }
     }
 
-    /*
-    public func dispose(by bag: ReportBag) {
-        bag.addSubscription(self)
+    private var subscriptions = [ReporterSubscription]()
+
+    public func addSubscription(_ subscription: ReporterSubscription) {
+        self.subscriptions.append(subscription)
     }
-    */
 
 }
 
+public typealias ReporterCallback = () -> Void
+
+public struct ReporterSubscription {
+
+    let id: String
+    let callback: ReporterCallback
+    weak var reporter: Reporter?
+
+    init(
+        _ id: String,
+        _ callback: @escaping ReporterCallback,
+        _ reporter: Reporter?
+    ) {
+        self.id = id
+        self.callback = callback
+        self.reporter = reporter
+    }
+
+    public func disposed(by bag: ReporterBag) {
+        bag.addSubscription(self)
+    }
+
+}
+
+// Reporter reports (broadcasts) to any number of subscriptions.
 public class Reporter {
 
     public var name: String
@@ -51,11 +74,11 @@ public class Reporter {
         self.name = name
     }
 
-    private var subscriptions = [ReporterSubscription]()
+    private var subscriptions = [String: ReporterSubscription]()
 
     public func report() {
         let subs = self.subscriptions
-        for sub in subs {
+        for (_, sub) in subs {
             sub.callback()
         }
     }
@@ -64,16 +87,13 @@ public class Reporter {
     public func subscribe(
         _ callback: @escaping ReporterCallback
     ) -> ReporterSubscription {
-        return self.subscribe(callback, owner: nil)
+        let id = UUID().uuidString
+        self.subscriptions[id] = ReporterSubscription(id, callback, self)
+        return self.subscriptions[id]!
     }
 
-    @discardableResult
-    public func subscribe(
-        _ callback: @escaping ReporterCallback,
-        owner: AnyObject? = nil
-    ) -> ReporterSubscription {
-        self.subscriptions.append(ReporterSubscription(callback, self, owner))
-        return self.subscriptions.last!
+    public func removeSubscription(id: String) {
+        self.subscriptions[id] = nil
     }
 
 }

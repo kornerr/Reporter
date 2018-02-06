@@ -33,11 +33,16 @@ class AppCoordinator {
     }
 
     private func presentAnotherVC() {
+        // Create another VC.
         let vc = AnotherViewController()
-        // Present another VC.
+        // Present it.
         self.mainVC.present(vc, animated: true, completion: nil)
-
-        // TODO: Hide another VC when it asks to do so.
+        // Hide another VC when it asks to do so.
+        // This subscription lives while another VC lives.
+        vc.closeReport.subscribe { [unowned vc] in
+            vc.dismiss(animated: true, completion: nil)
+        }
+        .disposed(by: vc.reporterBag)
     }
 
 }

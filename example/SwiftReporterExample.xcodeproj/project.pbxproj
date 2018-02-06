@@ -13,9 +13,9 @@
 		9F5692812028938400297687 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5692802028938400297687 /* AppCoordinator.swift */; };
 		9F569284202893FD00297687 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F569282202893FD00297687 /* MainViewController.xib */; };
 		9F569285202893FD00297687 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F569283202893FD00297687 /* MainViewController.swift */; };
-		9F5692872028957800297687 /* SwiftReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5692862028957800297687 /* SwiftReporter.swift */; };
 		9F56928A2028A4E800297687 /* AnotherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5692882028A4E800297687 /* AnotherViewController.swift */; };
 		9F56928B2028A4E800297687 /* AnotherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F5692892028A4E800297687 /* AnotherViewController.xib */; };
+		9F613A4A2029BD03007149DA /* SwiftReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F613A492029BD03007149DA /* SwiftReporter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +27,9 @@
 		9F5692802028938400297687 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		9F569282202893FD00297687 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		9F569283202893FD00297687 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		9F5692862028957800297687 /* SwiftReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftReporter.swift; path = ../../src/SwiftReporter.swift; sourceTree = "<group>"; };
 		9F5692882028A4E800297687 /* AnotherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnotherViewController.swift; sourceTree = "<group>"; };
 		9F5692892028A4E800297687 /* AnotherViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnotherViewController.xib; sourceTree = "<group>"; };
+		9F613A492029BD03007149DA /* SwiftReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftReporter.swift; path = ../../SwiftReporter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,16 +64,24 @@
 			children = (
 				9F5692802028938400297687 /* AppCoordinator.swift */,
 				9F56926E2028909000297687 /* AppDelegate.swift */,
-				9F5692862028957800297687 /* SwiftReporter.swift */,
-				9F5692882028A4E800297687 /* AnotherViewController.swift */,
-				9F5692892028A4E800297687 /* AnotherViewController.xib */,
-				9F569283202893FD00297687 /* MainViewController.swift */,
-				9F569282202893FD00297687 /* MainViewController.xib */,
+				9F613A492029BD03007149DA /* SwiftReporter.swift */,
+				9F613A4B2029BD1F007149DA /* VCs */,
 				9F5692752028909000297687 /* Assets.xcassets */,
 				9F5692772028909000297687 /* LaunchScreen.storyboard */,
 				9F56927A2028909000297687 /* Info.plist */,
 			);
 			path = SwiftReporterExample;
+			sourceTree = "<group>";
+		};
+		9F613A4B2029BD1F007149DA /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				9F5692882028A4E800297687 /* AnotherViewController.swift */,
+				9F5692892028A4E800297687 /* AnotherViewController.xib */,
+				9F569283202893FD00297687 /* MainViewController.swift */,
+				9F569282202893FD00297687 /* MainViewController.xib */,
+			);
+			path = VCs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,9 +158,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F569285202893FD00297687 /* MainViewController.swift in Sources */,
+				9F613A4A2029BD03007149DA /* SwiftReporter.swift in Sources */,
 				9F56928A2028A4E800297687 /* AnotherViewController.swift in Sources */,
 				9F5692812028938400297687 /* AppCoordinator.swift in Sources */,
-				9F5692872028957800297687 /* SwiftReporter.swift in Sources */,
 				9F56926F2028909000297687 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,6 +5,8 @@ class AnotherViewController: UIViewController {
 
     // MARK: - SETUP
 
+    let reporterBag = ReporterBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
