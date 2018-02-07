@@ -1,18 +1,20 @@
 # SwiftReporter
 
-SwiftReporter provides simple reporting functionality to your Swift projects.
+SwiftReporter provides simple reporting (broadcasting) functionality.
+
+## Motivation
+
+TODO
 
 ## Features
 
 - [x] Report (broadcast) to any number of subscribers
 - [x] React to a report with a closure
-- [x] Control subscription lifetime with the help of a special ReportBag
+- [x] Control subscription lifetime
 
 ## Requirements
 
-TODO
-
-- iOS 8.0+
+- iOS 9.0+
 - Xcode 9.0+
 - Swift 4.0+
 
@@ -20,7 +22,11 @@ TODO
 
 ### CocoaPods
 
-TODO
+Add the following line to your `Podfile` to get `SwiftReporter`:
+
+```
+  pod 'SwiftReporter'
+```
 
 ### Carthage
 
@@ -28,7 +34,7 @@ TODO
 
 ### Manually
 
-TODO
+Just grab `SwiftReporter.swift` file.
 
 ---
 
