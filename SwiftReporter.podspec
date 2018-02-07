@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.authors = { 'Michael Kapelko' => 'kornerr@gmail.com' }
 
   s.source = { :git => 'https://github.com/kornerr/SwiftReporter.git', :tag => s.version }
-  s.source_files = 'src/SwiftReporter.swift'
+  s.source_files = 'SwiftReporter.swift'
 
   s.ios.deployment_target = '9.0'
   #s.osx.deployment_target = '10.10'

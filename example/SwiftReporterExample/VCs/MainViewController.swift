@@ -1,4 +1,5 @@
 
+import SwiftReporter
 import UIKit
 
 class MainViewController: UIViewController {

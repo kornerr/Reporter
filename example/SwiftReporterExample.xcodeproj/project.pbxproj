@@ -15,10 +15,13 @@
 		9F569285202893FD00297687 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F569283202893FD00297687 /* MainViewController.swift */; };
 		9F56928A2028A4E800297687 /* AnotherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5692882028A4E800297687 /* AnotherViewController.swift */; };
 		9F56928B2028A4E800297687 /* AnotherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F5692892028A4E800297687 /* AnotherViewController.xib */; };
-		9F613A4A2029BD03007149DA /* SwiftReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F613A492029BD03007149DA /* SwiftReporter.swift */; };
+		F7A2BCCAB6DFB336D848E128 /* Pods_SwiftReporterExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19055F7763A15AC7B5960D51 /* Pods_SwiftReporterExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19055F7763A15AC7B5960D51 /* Pods_SwiftReporterExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftReporterExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45C8389F68E0AA6A6D8FE0D8 /* Pods-SwiftReporterExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftReporterExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftReporterExample/Pods-SwiftReporterExample.debug.xcconfig"; sourceTree = "<group>"; };
+		58A847810AF061FF6068CA5E /* Pods-SwiftReporterExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftReporterExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftReporterExample/Pods-SwiftReporterExample.release.xcconfig"; sourceTree = "<group>"; };
 		9F56926B2028909000297687 /* SwiftReporterExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftReporterExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F56926E2028909000297687 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F5692752028909000297687 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -29,7 +32,6 @@
 		9F569283202893FD00297687 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9F5692882028A4E800297687 /* AnotherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnotherViewController.swift; sourceTree = "<group>"; };
 		9F5692892028A4E800297687 /* AnotherViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnotherViewController.xib; sourceTree = "<group>"; };
-		9F613A492029BD03007149DA /* SwiftReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftReporter.swift; path = ../../SwiftReporter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7A2BCCAB6DFB336D848E128 /* Pods_SwiftReporterExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +51,8 @@
 			children = (
 				9F56926D2028909000297687 /* SwiftReporterExample */,
 				9F56926C2028909000297687 /* Products */,
+				B827C4882CD9FA9BD491830D /* Pods */,
+				A9384FC18F6D20EB79250F2F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,7 +69,6 @@
 			children = (
 				9F5692802028938400297687 /* AppCoordinator.swift */,
 				9F56926E2028909000297687 /* AppDelegate.swift */,
-				9F613A492029BD03007149DA /* SwiftReporter.swift */,
 				9F613A4B2029BD1F007149DA /* VCs */,
 				9F5692752028909000297687 /* Assets.xcassets */,
 				9F5692772028909000297687 /* LaunchScreen.storyboard */,
@@ -84,6 +88,23 @@
 			path = VCs;
 			sourceTree = "<group>";
 		};
+		A9384FC18F6D20EB79250F2F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				19055F7763A15AC7B5960D51 /* Pods_SwiftReporterExample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B827C4882CD9FA9BD491830D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				45C8389F68E0AA6A6D8FE0D8 /* Pods-SwiftReporterExample.debug.xcconfig */,
+				58A847810AF061FF6068CA5E /* Pods-SwiftReporterExample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -91,9 +112,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9F56927D2028909000297687 /* Build configuration list for PBXNativeTarget "SwiftReporterExample" */;
 			buildPhases = (
+				375EA43E102C264CC8FE36A9 /* [CP] Check Pods Manifest.lock */,
 				9F5692672028909000297687 /* Sources */,
 				9F5692682028909000297687 /* Frameworks */,
 				9F5692692028909000297687 /* Resources */,
+				8B7457F8E79D8DB34AF2E674 /* [CP] Embed Pods Frameworks */,
+				8433E66D055CE5DC8CD81DCD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,13 +176,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		375EA43E102C264CC8FE36A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftReporterExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8433E66D055CE5DC8CD81DCD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftReporterExample/Pods-SwiftReporterExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B7457F8E79D8DB34AF2E674 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftReporterExample/Pods-SwiftReporterExample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftReporter/SwiftReporter.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftReporter.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftReporterExample/Pods-SwiftReporterExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9F5692672028909000297687 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9F569285202893FD00297687 /* MainViewController.swift in Sources */,
-				9F613A4A2029BD03007149DA /* SwiftReporter.swift in Sources */,
 				9F56928A2028A4E800297687 /* AnotherViewController.swift in Sources */,
 				9F5692812028938400297687 /* AppCoordinator.swift in Sources */,
 				9F56926F2028909000297687 /* AppDelegate.swift in Sources */,
@@ -288,6 +365,7 @@
 		};
 		9F56927E2028909000297687 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45C8389F68E0AA6A6D8FE0D8 /* Pods-SwiftReporterExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -303,6 +381,7 @@
 		};
 		9F56927F2028909000297687 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58A847810AF061FF6068CA5E /* Pods-SwiftReporterExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

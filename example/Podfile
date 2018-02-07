@@ -1,0 +1,6 @@
+platform :ios, '9.0'
+
+target 'SwiftReporterExample' do
+  use_frameworks!
+  pod 'SwiftReporter', :path => '../'
+end
