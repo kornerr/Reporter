@@ -1,5 +1,8 @@
 
 /*
+This file is part of Reporter:
+  https://github.com/kornerr/Reporter
+
 Copyright (C) 2018 Michael Kapelko <kornerr@gmail.com>
 
 This software is provided 'as-is', without any express or implied
@@ -21,8 +24,10 @@ freely, subject to the following restrictions:
 
 import Foundation
 
+/**
 // Reporter bag controls life time of subscriptions:
 // subscriptions of a bag are removed when the bag is deallocated.
+ */
 public class ReporterBag {
     
     public init() { }

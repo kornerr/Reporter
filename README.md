@@ -71,3 +71,12 @@ Create issue and we'll sort it out together.
 
 SwiftReporter is released under the ZLIB license. See LICENSE for details.
 
+# Change Log
+`Reporter` adheres to [Semantic Versioning](http://semver.org/).
+
+## [1.0](https://github.com/kornerr/SwiftReporter/releases/tag/1.0.0)
+Released on 2018-07-03. 
+
+### Added
+- Reporting (broadcasting) to subscribers, which is similar to Rx Swift's Variable
+- ReporterBag to control subscriptions' lifetime
