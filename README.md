@@ -82,7 +82,7 @@ Here's a brief overview of files under `example/App/Profile` (in the order of im
     * requests `ProfileController` data
     * syncs `ProfileVC` with `ProfileController` data
 * ProfileController
-    * provides `ProfileItem` and `itemChanged` (`Reporter` instance) to notify of `ProfileItem` updates
+    * provides `ProfileItem` and `itemChanged` (`Reporter` instance) to report (broadcast) `ProfileItem` changes
     * provides execution state of `load()` with `isLoading`
     * simulates `ProfileItem` loading
         * first, user name
