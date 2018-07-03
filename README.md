@@ -39,7 +39,7 @@ information (incapsulated into `ProfileItem` structure):
     * `ProfileItem.image` is nil
 * user information is available and image has been loaded
     * `ProfileItem` exists
-    * both `ProfileItem.username` and `ProfileItem.image' exist
+    * both `ProfileItem.username` and `ProfileItem.image` exist
 
 As you can see, `ProfileController`'s `ProfileItem` is dynamic and changes
 over time. `Reporter` helps you subscribe to these changes and keep your
@@ -61,8 +61,8 @@ self.profileController.itemChanged.subscribe { [weak self] in
 }
 ```
 
-Now it doesn't matter who or what initiates `ProfileItem` updates. `ProfileVC`
-is never out of sync with the data.
+Now it doesn't matter who/what/when initiates `ProfileItem` updates. `ProfileVC`
+is always in sync with the data.
 
 # Example
 
@@ -77,22 +77,34 @@ Sample application (in `example/` directory) demonstrates a case of user profile
 Here's a brief overview of files under `example/App/Profile` (in the order of importance):
 
 * ProfileCoordinator
-    *
+    * creates `ProfileVC`
+    * creates `ProfileController`
+    * requests `ProfileController` data
+    * syncs `ProfileVC` with `ProfileController` data
 * ProfileController
-    *
+    * provides `ProfileItem` and a reporter to be notified when `ProfileItem` is updated
+    * provides execution state of `load()` with `isLoading`
+    * simulates `ProfileItem` loading
+        * first, user name
+        * second, user image
+            * after a short delay
+            * image update leads to `ProfileItem` update
 * ProfileItem
-    *
+    * contains user name
+    * contains user image
 * ProfileVC
-    *
+    * displays all three discrete stages of `ProfileItem` availability:
+        * not available
+        * only user name is available
+        * both user name and image are available
 
+## Images
 
-## Reporter usage
-
-TODO sample code
+Loaded image represent Hanar race from [Mass Effect][me-races].
 
 # License
 
 Reporter is released under the ZLIB license.
 
 [preview]: preview.gif
-
+[me-races]: http://masseffect.wikia.com/wiki/Races
