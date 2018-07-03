@@ -25,30 +25,44 @@ freely, subject to the following restrictions:
 import Foundation
 
 /**
-// Reporter bag controls life time of subscriptions:
-// subscriptions of a bag are removed when the bag is deallocated.
- */
-public class ReporterBag {
+An object that controls subscription lifetime:
+when the object is deallocated, all subscriptions get deallocated, too.
+*/
+public class ReporterBag
+{
     
+    /**
+    Create ReporterBag instance.
+    */
     public init() { }
 
-    deinit {
-        for sub in self.subscriptions {
-            sub.reporter?.removeSubscription(id: sub.id)
+    deinit
+    {
+        for subscription in self.subscriptions
+        {
+            subscription.reporter?.removeSubscription(id: subscription.id)
         }
     }
 
     private var subscriptions = [ReporterSubscription]()
 
-    public func addSubscription(_ subscription: ReporterSubscription) {
+    func addSubscription(_ subscription: ReporterSubscription)
+    {
         self.subscriptions.append(subscription)
     }
 
 }
 
+/**
+Simple no-argument closure
+*/
 public typealias ReporterCallback = () -> Void
 
-public struct ReporterSubscription {
+/**
+Internal structure to manage subscriptions.
+*/
+public struct ReporterSubscription
+{
 
     let id: String
     let callback: ReporterCallback
@@ -64,30 +78,56 @@ public struct ReporterSubscription {
         self.reporter = reporter
     }
 
-    public func disposed(by bag: ReporterBag) {
+    public func disposed(by bag: ReporterBag)
+    {
         bag.addSubscription(self)
     }
 
 }
 
-// Reporter reports (broadcasts) to any number of subscriptions.
-public class Reporter {
+/**
+An object that reports (broadcasts) to any number of subscribers.
+You can think of Reporter as multidelegate pattern implementation.
+*/
+public class Reporter
+{
 
+    /**
+    Name might be helpful in telling different instances apart
+    */
     public var name: String
 
-    public init(name: String = "Noname") {
+    /**
+    Create Reporter instance.
+
+     - parameter name: might be helpful in telling different instances apart
+    */
+    public init(name: String = "")
+    {
         self.name = name
     }
 
     private var subscriptions = [String: ReporterSubscription]()
 
-    public func report() {
-        let subs = self.subscriptions
-        for (_, sub) in subs {
-            sub.callback()
+    /**
+    Report (broadcast) a change to all subscribers
+    */
+    public func report()
+    {
+        for (_, subscription) in self.subscriptions
+        {
+            subscription.callback()
         }
     }
 
+    /**
+    Subscribe a callback to be executed each time this instances reports (broadcasts).
+
+    You may want to append `.disposed(by:)` to control this subscription's lifetime.
+    See ReporterBag for details.
+
+    - parameter callback: Simple no-argument closure to execute
+    */
     @discardableResult
     public func subscribe(
         _ callback: @escaping ReporterCallback
@@ -97,7 +137,8 @@ public class Reporter {
         return self.subscriptions[id]!
     }
 
-    public func removeSubscription(id: String) {
+    func removeSubscription(id: String)
+    {
         self.subscriptions[id] = nil
     }
 
