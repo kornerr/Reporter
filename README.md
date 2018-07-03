@@ -74,14 +74,14 @@ Sample application (in `example/` directory) demonstrates a case of user profile
 
 ## Architecture
 
-Here's a brief overview of files under `example/App/Profile` (in the order of importance):
+Here's a brief overview of classes under `example/App/Profile` (in the order of importance):
 
-* ProfileCoordinator
+* `ProfileCoordinator`
     * creates `ProfileVC`
     * creates `ProfileController`
     * requests `ProfileController` data
     * syncs `ProfileVC` with `ProfileController` data
-* ProfileController
+* `ProfileController`
     * provides `ProfileItem` and `itemChanged` (`Reporter` instance) to report (broadcast) `ProfileItem` changes
     * provides execution state of `load()` with `isLoading` (`Reporter` instance)
     * simulates `ProfileItem` loading
@@ -89,10 +89,10 @@ Here's a brief overview of files under `example/App/Profile` (in the order of im
         * second, user image
             * does so after a short delay
             * image update leads to `ProfileItem` update
-* ProfileItem
+* `ProfileItem`
     * contains user name
     * contains user image
-* ProfileVC
+* `ProfileVC`
     * displays all three discrete stages of `ProfileItem` availability:
         * not available
         * only user name is available
