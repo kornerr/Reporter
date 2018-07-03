@@ -24,7 +24,7 @@ class ProfileCoordinator
             this.profileVC.isLoading = this.profileController.isLoading
         }
 
-        // Displayed profile item each time it changes.
+        // Display profile item each time it changes.
         self.profileController.itemChanged.subscribe { [weak self] in
             guard
                 let this = self,
