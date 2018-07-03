@@ -82,12 +82,12 @@ Here's a brief overview of files under `example/App/Profile` (in the order of im
     * requests `ProfileController` data
     * syncs `ProfileVC` with `ProfileController` data
 * ProfileController
-    * provides `ProfileItem` and a reporter to be notified when `ProfileItem` is updated
+    * provides `ProfileItem` and `itemChanged` (`Reporter` instance) to notify of `ProfileItem` updates
     * provides execution state of `load()` with `isLoading`
     * simulates `ProfileItem` loading
         * first, user name
         * second, user image
-            * after a short delay
+            * does so after a short delay
             * image update leads to `ProfileItem` update
 * ProfileItem
     * contains user name
