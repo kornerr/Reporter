@@ -15,25 +15,24 @@ class ProfileController
         }
     }
 
-    // MARK: - REFRESH
+    // MARK: - LOADING
 
-    var refreshIsExecutingChanged = Reporter()
-    var refreshIsExecuting = false
+    var isLoadingChanged = Reporter()
+    var isLoading = false
     {
         didSet
         {
-            self.refreshIsExecutingChanged.report()
+            self.isLoadingChanged.report()
         }
     }
 
-    func refresh()
+    func load()
     {
-        // Ignore additional attempts if we are refreshing.
-        if (self.refreshIsExecuting)
+        // Ignore additional attempts if we are already loading.
+        if (self.isLoading)
         {
             return
         }
-
         self.fakeLoadItem()
     }
 
@@ -41,10 +40,10 @@ class ProfileController
 
     private func fakeLoadItem()
     {
-        self.refreshIsExecuting = true
+        self.isLoading = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.item = ProfileItem("Sup3r1337Guy")
-            self.refreshIsExecuting = false
+            self.isLoading = false
             self.fakeLoadImage()
         }
     }

@@ -18,13 +18,13 @@ class ProfileCoordinator
         self.rootVC = self.profileVC
         self.profileController = ProfileController()
 
-        // Set loading state while profile is refreshing.
-        self.profileController.refreshIsExecutingChanged.subscribe { [weak self] in
+        // Display loading screen when loading profile.
+        self.profileController.isLoadingChanged.subscribe { [weak self] in
             guard let this = self else { return }
-            this.profileVC.isLoading = this.profileController.refreshIsExecuting
+            this.profileVC.isLoading = this.profileController.isLoading
         }
 
-        // Update displayed profile item when it's updated.
+        // Displayed profile item each time it changes.
         self.profileController.itemChanged.subscribe { [weak self] in
             guard
                 let this = self,
@@ -36,8 +36,8 @@ class ProfileCoordinator
             this.profileVC.item = item
         }
 
-        // Refresh profile.
-        self.profileController.refresh()
+        // Load profile.
+        self.profileController.load()
     }
 
 }

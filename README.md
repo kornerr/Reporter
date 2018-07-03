@@ -1,40 +1,38 @@
-# SwiftReporter
+# Overview
 
-SwiftReporter provides simple reporting (broadcasting) functionality.
+`Reporter` allows you to broadcast changes to any number of subscribers.
+Think of Reporter as multidelegate implementation.
 
-## Motivation
-
-TODO
-
-## Features
+# Features
 
 - [x] Report (broadcast) to any number of subscribers
-- [x] React to a report with a closure
-- [x] Control subscription lifetime
+- [x] React to a report (broadcast) with a Swift closure
+- [x] Control subscription lifetime with `ReporterBag`
 
-## Requirements
+# Requirements
 
-- iOS 9.0+
 - Xcode 9.0+
 - Swift 4.0+
 
-## Installation
+# Installation
 
-### CocoaPods
+Simply add `Reporter.swift` (~150 lines of code) file to your Xcode project.
 
-Add the following line to your `Podfile` to get `SwiftReporter`:
+# Sample application
 
-```
-  pod 'SwiftReporter'
-```
+`Reporter` is particularly useful when implementing Controllers/Services or
+other entities with dynamic data changed over time.
 
-### Carthage
+Sample application demonstrates a case of user profile loading.
 
-TODO
+## Preview
 
-### Manually
+This is what the app looks like:
 
-Just grab `SwiftReporter.swift` file.
+![Preview][preview]
+
+## Reporter usage
+
 
 ---
 
@@ -67,16 +65,9 @@ TODO
 
 Create issue and we'll sort it out together.
 
-## License
+# License
 
-SwiftReporter is released under the ZLIB license. See LICENSE for details.
+Reporter is released under the ZLIB license.
 
-# Change Log
-`Reporter` adheres to [Semantic Versioning](http://semver.org/).
+[preview]: preview.gif
 
-## [1.0](https://github.com/kornerr/SwiftReporter/releases/tag/1.0.0)
-Released on 2018-07-03. 
-
-### Added
-- Reporting (broadcasting) to subscribers, which is similar to Rx Swift's Variable
-- ReporterBag to control subscriptions' lifetime
