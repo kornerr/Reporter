@@ -110,13 +110,15 @@ public class Reporter
     private var subscriptions = [String: ReporterSubscription]()
 
     /**
-    Report (broadcast) a change to all subscribers
+    Report (broadcast) a change to all subscribers on the main queue
     */
     public func report()
     {
-        for (_, subscription) in self.subscriptions
-        {
-            subscription.callback()
+        DispatchQueue.main.async {
+            for (_, subscription) in self.subscriptions
+            {
+                subscription.callback()
+            }
         }
     }
 
