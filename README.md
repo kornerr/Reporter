@@ -19,7 +19,7 @@ other entities with dynamic data changed over time.
 
 # Installation
 
-Simply add `Reporter.swift` (~150 lines of code) file to your Xcode project.
+Simply add `Reporter.swift` (~200 lines of code) file to your Xcode project.
 
 # Usage
 
