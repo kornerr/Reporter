@@ -108,6 +108,7 @@ public class Reporter
     }
 
     private var subscriptions = [String: ReporterSubscription]()
+    private var oneTimeSubscriptions = [String: ReporterSubscription]()
 
     /**
     Report (broadcast) a change to all subscribers on the main queue
@@ -119,6 +120,14 @@ public class Reporter
             {
                 subscription.callback()
             }
+
+            // Call one-time subscribers.
+            for (_, subscription) in self.oneTimeSubscriptions
+            {
+                subscription.callback()
+            }
+            // Clear.
+            self.oneTimeSubscriptions = [:]
         }
     }
 
@@ -137,6 +146,23 @@ public class Reporter
         let id = UUID().uuidString
         self.subscriptions[id] = ReporterSubscription(id, callback, self)
         return self.subscriptions[id]!
+    }
+
+    /**
+    Subscribe a callback to be executed only once.
+
+    You may want to append `.disposed(by:)` to control this subscription's lifetime.
+    See ReporterBag for details.
+
+    - parameter callback: Simple no-argument closure to execute
+    */
+    @discardableResult
+    public func subscribeOnce(
+        _ callback: @escaping ReporterCallback
+    ) -> ReporterSubscription {
+        let id = UUID().uuidString
+        self.oneTimeSubscriptions[id] = ReporterSubscription(id, callback, self)
+        return self.oneTimeSubscriptions[id]!
     }
 
     func removeSubscription(id: String)
