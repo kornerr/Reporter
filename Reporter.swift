@@ -107,8 +107,8 @@ public class Reporter
         self.name = name
     }
 
-    private var subscriptions = [String: ReporterSubscription]()
-    private var oneTimeSubscriptions = [String: ReporterSubscription]()
+    private var subscriptions = [ReporterSubscription]()
+    private var oneTimeSubscriptions = [ReporterSubscription]()
 
     /**
     Report (broadcast) a change to all subscribers on the main queue
@@ -116,18 +116,18 @@ public class Reporter
     public func report()
     {
         DispatchQueue.main.async {
-            for (_, subscription) in self.subscriptions
+            for subscription in self.subscriptions
             {
                 subscription.callback()
             }
 
             // Call one-time subscribers.
-            for (_, subscription) in self.oneTimeSubscriptions
+            for subscription in self.oneTimeSubscriptions
             {
                 subscription.callback()
             }
             // Clear.
-            self.oneTimeSubscriptions = [:]
+            self.oneTimeSubscriptions = []
         }
     }
 
@@ -144,8 +144,8 @@ public class Reporter
         _ callback: @escaping ReporterCallback
     ) -> ReporterSubscription {
         let id = UUID().uuidString
-        self.subscriptions[id] = ReporterSubscription(id, callback, self)
-        return self.subscriptions[id]!
+        self.subscriptions.append(ReporterSubscription(id, callback, self))
+        return self.subscriptions.last!
     }
 
     /**
@@ -161,13 +161,22 @@ public class Reporter
         _ callback: @escaping ReporterCallback
     ) -> ReporterSubscription {
         let id = UUID().uuidString
-        self.oneTimeSubscriptions[id] = ReporterSubscription(id, callback, self)
-        return self.oneTimeSubscriptions[id]!
+        self.oneTimeSubscriptions.append(ReporterSubscription(id, callback, self))
+        return self.oneTimeSubscriptions.last!
     }
 
     func removeSubscription(id: String)
     {
-        self.subscriptions[id] = nil
+        var index = 0
+        for subscription in self.subscriptions
+        {
+            if subscription.id == id
+            {
+                self.subscriptions.remove(at: index)
+                return
+            }
+            index = index + 1
+        }
     }
 
 }

@@ -8,7 +8,7 @@ other entities with dynamic data changed over time.
 
 # Features
 
-- [x] Report (broadcast) to any number of subscribers
+- [x] Report (broadcast) to any number of subscribers in the order of subscription
 - [x] React to a report (broadcast) with a Swift closure
 - [x] Control subscription lifetime with `ReporterBag`
 
