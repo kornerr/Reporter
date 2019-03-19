@@ -100,7 +100,7 @@ Here's a brief overview of classes under `example/App/Profile` (in the order of 
 
 ## Images
 
-Loaded image represent Hanar race from [Mass Effect][me-races].
+Loaded image represents Hanar race from [Mass Effect][me-races].
 
 # License
 
